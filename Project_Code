@@ -1,1 +1,45 @@
+import java.util.Scanner;
 
+public class currency {
+
+    static double USD_TO_INR = 83.0;
+    static double EUR_TO_INR = 90.0;
+    static double GBP_TO_INR = 105.0;
+
+   
+    static double convert(double amount, String currency) {
+
+        if (currency.equals("USD")) {
+            return amount * USD_TO_INR;
+        } 
+        else if (currency.equals("EUR")) {
+            return amount * EUR_TO_INR;
+        } 
+        else if (currency.equals("GBP")) {
+            return amount * GBP_TO_INR;
+        } 
+        else {
+            System.out.println("Invalid Currency!");
+            return 0;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("=== Currency Converter ===");
+
+        System.out.print("Enter Amount: ");
+        double amount = sc.nextDouble();
+
+        System.out.print("Enter Currency (USD/EUR/GBP): ");
+        String currency = sc.next();
+
+        double result = convert(amount, currency);
+
+        System.out.println("Converted Amount in INR: " + result);
+
+        sc.close();
+    }
+}
